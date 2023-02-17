@@ -1,0 +1,7 @@
+This is the power of async await:
+Hello this is first text file
+Hello this is second text fileThis is the power of async await:
+Hello this is first text file
+Hello this is second text fileThis is the power of async await:
+Hello this is first text file
+Hello this is second text file
