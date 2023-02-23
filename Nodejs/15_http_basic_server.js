@@ -9,15 +9,15 @@ const server = http.createServer((req, res) => {
     // console.log(`Headers: ${JSON.stringify(req.headers)}`);
 
     if (url === "/") {
-        res.writeHead(200, {"content-type": "text/html"});
+        res.writeHead(200, { "content-type": "text/html" });
         res.write("<h1>Home Page</h1>");
     }
     else if (url === "/about") {
-        res.writeHead(200, {"content-type": "text/html"});
+        res.writeHead(200, { "content-type": "text/html" });
         res.write("<h1>About Page</h1>");
     }
     else {
-        res.writeHead(404, {"content-type": "text/html"});
+        res.writeHead(404, { "content-type": "text/html" });
         res.write("<h1>404 Page Not Found</h1>");
     }
 
