@@ -5,7 +5,7 @@ dotenv.config();
 const option = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}
+};
 
 const connectToMongo = () => {
     mongoose
