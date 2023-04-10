@@ -14,9 +14,8 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.use("/api/v1", router);
-
-app.get("/healthcheck", (req, res) => {
-  res.json({ success: true, message: 'Server is up and running' });
+app.use("*", (req, res) => {
+  res.status(404).json({ method: req.method, route: req.baseUrl, error: "This route does not exists" });
 });
 
 app.listen(PORT, () => {
