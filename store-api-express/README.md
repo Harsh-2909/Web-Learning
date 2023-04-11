@@ -10,8 +10,9 @@ This project only has a single endpoint. This API was created to learn more abou
 3. Navigate to the project folder in your terminal.
 4. Run `npm install` to install all the node dependencies for this project.
 5. Create a `.env` file in the root of the project following the `.env.example` file of the project. Make sure to add a valid `MONGO_URI` to the file or it will not connect to DB.
-6. Run the project from the terminal using `npm run dev`.
-7. Congrats! The project will start running now.
+6. Run the `populateDB.js` file by using `node populateDB.js` to populate example data in your collection. Make sure to remove the delete data line from this file if you want to keep previous data from this collection.
+7. Run the project from the terminal using `npm run dev`.
+8. Congrats! The project will start running now.
 
 ## API Documentation
 

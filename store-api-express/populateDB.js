@@ -8,7 +8,7 @@ const populate = async () => {
     try {
         await connectToMongo(process.env.MONGO_URI);
         console.log("Connected to DB!");
-        await Product.deleteMany();
+        await Product.deleteMany(); // Remove this line if you don't want to clear your collection
         await Product.create(jsonProducts);
         console.log("Success!");
         process.exit(0);
