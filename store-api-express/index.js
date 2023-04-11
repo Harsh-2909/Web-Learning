@@ -23,6 +23,7 @@ app.use(errorMiddleware);
 const start = async () => {
     try {
         await connectToMongo(process.env.MONGO_URI);
+        console.log("CONNECTED TO MONGO DB DATABASE 🌐");
         app.listen(PORT, console.log(`Server running at PORT: ${PORT}`));
     } catch (error) {
         console.error(error);
