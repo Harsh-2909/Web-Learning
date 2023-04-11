@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
-const CustomAPIError = require("../errors/custom_error");
+const { UnauthorizedError } = require("../errors");
 
 const authenticator = async (req, res, next) => {
     const { authorization: authHeader } = req.headers;
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-        throw new CustomAPIError("Invalid credentials to access this route", 401);
+        throw new UnauthorizedError("Invalid credentials to access this route");
     }
     const token = authHeader.split(" ")[1];
     try {
@@ -12,7 +12,7 @@ const authenticator = async (req, res, next) => {
         const { id, username } = decoded;
         req.user = { id, username };
     } catch (error) {
-        throw new CustomAPIError("Invalid credentials to access this route", 401);
+        throw new UnauthorizedError("Invalid credentials to access this route");
     }
     next();
 };
