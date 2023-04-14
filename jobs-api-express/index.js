@@ -15,8 +15,10 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(morgan("dev"));
 
+// API Routes
 app.use("/api/v1", router);
 
+// Error Handlers
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
 

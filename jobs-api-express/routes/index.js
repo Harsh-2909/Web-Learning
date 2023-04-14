@@ -1,9 +1,11 @@
 const express = require("express");
-// const { login, dashboard } = require("../controllers/main");
 const authenticator = require("../middlewares/auth");
+const authRouter = require("./auth");
+const jobsRouter = require("./jobs");
 const router = express.Router({ mergeParams: true });
 
-// router.post("/login", login);
-// router.get("/dashboard", authenticator, dashboard);
+router.use("/auth", authRouter);
+// router.use("/jobs", authenticator, jobsRouter);
+router.use("/jobs", jobsRouter);
 
 module.exports = router;
