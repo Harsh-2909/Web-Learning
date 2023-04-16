@@ -31,9 +31,9 @@ const jobSchema = new mongoose.Schema({
         type: String,
         enum: {
             values: ["pending", "interview", "accepted", "declined"],
-            message: "Status is either: pending, interview, accepted or declined",
-            default: "pending"
-        }
+            message: "Status is either: pending, interview, accepted or declined"
+        },
+        default: "pending"
     },
     createdBy: {
         type: mongoose.Types.ObjectId,
