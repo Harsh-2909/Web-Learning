@@ -5,7 +5,7 @@ const jobSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide a title"],
         trim: true,
-        maxlength: [100, "Title cannot be more than 100 characters"]
+        maxlength: [50, "Title cannot be more than 50 characters"]
     },
     description: {
         type: String,
@@ -24,24 +24,24 @@ const jobSchema = new mongoose.Schema({
     },
     location: {
         type: String,
-        required: [true, "Please provide a location"],
         trim: true,
         maxlength: [100, "Location cannot be more than 100 characters"]
     },
-    remote: {
-        type: Boolean,
-        default: false
+    status: {
+        type: String,
+        enum: {
+            values: ["pending", "interview", "accepted", "declined"],
+            message: "Status is either: pending, interview, accepted or declined",
+            default: "pending"
+        }
     },
-    // experience: {
-    //     type: String,
-    //     enum: ["entry", "mid", "senior"],
-    //     default: "entry"
-    // },
-    // user: {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: "User",
-    //     required: true
-    // }
+    createdBy: {
+        type: mongoose.Types.ObjectId,
+        ref: "User",
+        required: [true, "Please provide a user"]
+    }
 }, {
     timestamps: true,
 });
+
+module.exports = mongoose.model("Job", jobSchema);
