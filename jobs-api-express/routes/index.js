@@ -5,7 +5,6 @@ const jobsRouter = require("./jobs");
 const router = express.Router({ mergeParams: true });
 
 router.use("/auth", authRouter);
-// router.use("/jobs", authenticator, jobsRouter);
-router.use("/jobs", jobsRouter);
+router.use("/jobs", authenticator, jobsRouter);
 
 module.exports = router;
