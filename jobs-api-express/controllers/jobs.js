@@ -10,7 +10,7 @@ const getAllJobs = async (req, res, next) => {
 const getJob = async (req, res, next) => {
     const job = await Job.findOne({ _id: req.params.id, createdBy: req.user.id });
     if (!job) {
-        throw new NotFoundError("Job not found");
+        throw new NotFoundError(`Resource not found with id of ${req.params.id}`);
     }
     return res.status(StatusCodes.OK).json({ success: true, job });
 };
@@ -27,7 +27,7 @@ const updateJob = async (req, res, next) => {
         { new: true, runValidators: true }
     );
     if (!job) {
-        throw new NotFoundError("Job not found");
+        throw new NotFoundError(`Resource not found with id of ${req.params.id}`);
     }
     return res.status(StatusCodes.OK).json({ success: true, job });
 };
@@ -35,7 +35,7 @@ const updateJob = async (req, res, next) => {
 const deleteJob = async (req, res, next) => {
     const job = await Job.findOneAndRemove({ _id: req.params.id, createdBy: req.user.id });
     if (!job) {
-        throw new NotFoundError("Job not found");
+        throw new NotFoundError(`Resource not found with id of ${req.params.id}`);
     }
     return res.status(StatusCodes.OK).json({ success: true, job });
 };
